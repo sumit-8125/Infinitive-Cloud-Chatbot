@@ -27,11 +27,14 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 sudo docker run hello-world
 ```
 
-From the project folder, build and start both services:
+From the project folder, create the local Compose environment file and start both services:
 
 ```bash
+cp .env.example .env
 docker compose up --build -d
 ```
+
+The `.env.example` file contains only non-secret defaults. Keep any real `.env` private; it is ignored by Git and excluded from Docker build contexts. The current PDF-only backend needs no provider key.
 
 Check service status and logs:
 

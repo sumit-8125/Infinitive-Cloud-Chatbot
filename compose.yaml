@@ -25,11 +25,11 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      CHATBOT_BACKEND_URL: http://backend:8000
-      PORT: "3000"
+      CHATBOT_BACKEND_URL: ${CHATBOT_BACKEND_URL:-http://backend:8000}
+      PORT: ${PORT:-3000}
     depends_on:
       backend:
         condition: service_healthy
     ports:
-      - "3000:3000"
+      - "${WEB_PORT:-3000}:3000"
     restart: unless-stopped

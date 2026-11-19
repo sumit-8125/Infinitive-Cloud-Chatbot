@@ -8,6 +8,5 @@ __pycache__
 venv
 .env
 .env.*
-!.env.example
 *.tsbuildinfo
 npm-debug.log*
