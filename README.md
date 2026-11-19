@@ -1,6 +1,6 @@
 # Infinitive Cloud Assistant
 
-The Next.js frontend and Python backend run as separate Docker Compose services. The backend uses the extracted knowledge text in `backend/knowledge_base.txt`; this current extractive setup does not need a model API key.
+The Next.js frontend and Python backend run as separate Docker Compose services. The backend retrieves relevant text from `backend/knowledge_base.txt` and uses OpenRouter to phrase answers when an API key is configured. If inference is unavailable, it falls back to the matching text.
 
 ## Deploy with Docker Compose
 
@@ -30,11 +30,11 @@ sudo docker run hello-world
 From the project folder, create the local Compose environment file and start both services:
 
 ```bash
-cp .env.example .env
+cp -n .env.example .env
 docker compose up --build -d
 ```
 
-The `.env.example` file contains only non-secret defaults. Keep any real `.env` private; it is ignored by Git and excluded from Docker build contexts. The current PDF-only backend needs no provider key.
+Copy the key from your OpenRouter account into `.env` before starting the services. `.env.example` contains an empty key field and non-secret defaults; keep the populated `.env` private. Git ignores it and Docker excludes it from build contexts. The Compose file passes the key only to the backend container. `cp -n` leaves an existing `.env` untouched during redeployment.
 
 Check service status and logs:
 

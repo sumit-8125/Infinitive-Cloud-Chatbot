@@ -6,6 +6,9 @@ services:
     environment:
       CHATBOT_HOST: 0.0.0.0
       CHATBOT_PORT: "8000"
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      OPENROUTER_BASE_URL: ${OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}
+      OPENROUTER_MODEL: ${OPENROUTER_MODEL:-nvidia/nemotron-3.5-lightning:free}
     expose:
       - "8000"
     restart: unless-stopped

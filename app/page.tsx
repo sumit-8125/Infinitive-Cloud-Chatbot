@@ -268,7 +268,7 @@ export default function Page() {
             <div>
               <h1>Infinitive Cloud Assistant</h1>
               <span className="status" data-state={backendStatus}>
-                <i /> {backendStatus === "pdf-only" ? "Assistant ready" : backendStatus === "ready" || backendStatus === "local" ? "Assistant ready" : backendStatus === "checking" ? "Connecting to assistant…" : "Backend unavailable"}
+                <i /> {backendStatus === "ready" ? "AI model active" : backendStatus === "local" || backendStatus === "pdf-only" ? "Local answer mode" : backendStatus === "checking" ? "Connecting to assistant…" : "Backend unavailable"}
               </span>
             </div>
           </div>
