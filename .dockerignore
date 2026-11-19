@@ -1,0 +1,13 @@
+.git
+.next
+.next-local
+node_modules
+__pycache__
+*.py[cod]
+.venv
+venv
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+npm-debug.log*
